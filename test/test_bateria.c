@@ -71,7 +71,6 @@ Bateria	bateria;
 Evento	eventoTimeout, evn;
 int		retVal;
 
-
 static int Bateria_espiarEstado ( Bateria * bateria );
 #define PASA_UN_SEGUNDO(e) (Bateria_manejadorEventos(&bateria, &eventoTimeout))
 #define CHEQUEAR_ESTADO(e) LONGS_EQUAL(e, bateria->testEspiarEstado())
@@ -100,6 +99,52 @@ void test_FrameworkOk						( void )
 {
 	TEST_ASSERT_EQUAL(1,1);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void test_Ejemplo							( void )
 {
