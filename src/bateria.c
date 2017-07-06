@@ -17,7 +17,7 @@
 
 void Bateria_Init							( Bateria * bateria )
 {
-	bateria->estado = sBATERIA_LLENA;
+
 }
 
 /**
@@ -32,10 +32,6 @@ void Bateria_manejadorEventos 				( Bateria * bateria, Evento * evento )
 	switch( evento->senial )
 	{
 		case SIG_TIMEOUT:
-			evn.valor	= getValorInstantaneoPinBateria() * 20;
-			evn.senial	= SIG_BATERIA_TENSION_ACTUAL_MV;
-			Framework_publicarEvento( &evn );
-			setEstadoLEDPanelFrontal( 1 );
 			break;
 
 		case SIG_ARRANQUE:

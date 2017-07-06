@@ -160,6 +160,32 @@ void test_Ejemplo							( void )
 	TEST_ASSERT_EQUAL		( 14400, evn.valor );
 }
 
+
+
+
+
+
+
+
+
+
+
+
+void ignoretest_ReqBat_1_1_UnaMedicionCorrecta			( void )
+{
+
+}
+
+void ignoretest_ReqBat_1_2_UnaMedicionPorSegundo		( void )
+{
+
+}
+
+void ignoretest_ReqBat_1_3_IgnorarMedicionesIncorrectas	( void )
+{
+
+}
+
 void ignoretest_ReqBat_2_1_EstadoInicialBateria			( void )
 {
 
