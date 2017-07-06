@@ -35,7 +35,8 @@
  * Requerimientos del modulo:
  *
  * Req.Bat.1.1: La bateria se medirá tomando 4 muestras seguidas de la tensión en el pin VBAT, escalándolo a la tensión en batería y haciendo un promedio aritmético de las mismas.
- * Req.Bat.1.2: Se ignorarán las mediciones por debajo de 6,0 V y por encima de 18,0V
+ * Req.Bat.1.2: Se hara una medicion de bateria por segundo.
+ * Req.Bat.1.3: Se ignorarán las mediciones por debajo de 6,0 V y por encima de 18,0V.
  *
  * Req.Bat.2.1: El modulo batería publicará el estado de la batería en los siguientes niveles:
  * 		CARGANDO,	cuando la medicion de bateria sea mayor o igual a 14,0 V
@@ -44,17 +45,13 @@
  * 		BAJA,		cuando la medicion de bateria sea menor a 12,2 V y mayor o igual a 11,8 V
  * 		VACIA,		cuando la medicion de bateria sea menor a 11,8 V y mayor o igual a 11,4 V
  * 		CRITICA,	cuando la medicion de bateria sea menor a 11,4 V
- * Req.Bat.2.2: El nivel de batería no podrá aumentar sin que el equipo haya sido conectado a la red.
- * Req.Bat.2.3: El modulo batería dará la orden de apagar equipo en 5 segundos si el nivel de batería es crítico al arrancar el equipo.
- * Req.Bat.2.4: El módulo no medirá más la batería luego de iniciar una descarga estando en estado crítico.
+ * Req.Bat.2.2: El nivel de batería no podrá aumentar sin que el modulo pase por el estado CARGANDO.
  *
- * Req.Bat.3.1: El modulo batería iniciará una cuenta regresiva hasta el apagado de 60 segundos cada vez que pase a estar vez en estado crítico.
+ * Req.Bat.3.1: El modulo batería iniciará una cuenta regresiva hasta el apagado de accesorios de 60 segundos cada vez que pase a estar vez en estado crítico.
  * Req.Bat.3.2: El modulo batería publicará el pasaje de sucesivos 10 segundos de la cuenta regresiva.
- * Req.Bat.3.3: El modulo batería publicará el fin de la cuenta regresiva para que se apague el equipo.
+ * Req.Bat.3.3: El modulo batería publicará el fin de la cuenta regresiva para el apagado de accesorios.
  *
- * Req.Bat.4.1: No se medirá la bateria en los 60 segundos siguientes a una carga del capacitor.
- * Req.Bat.4.2: No se medirá la bateria en los 60 segundos siguientes a una descarga interna del capacitor.
- * Req.Bat.4.3: No se medirá la bateria en los 60 segundos siguientes a una transferencia del capacitor.
+ * Req.Bat.4.1: No se medirá la bateria en los 60 segundos siguientes al arranque.
  *
  * Req.Bat.5.1: El LED de estado de bateria quedará prendido fijo en los estados sBATERIA_CRITICA y sBATERIA_VACIA
  * Req.Bat.5.2: El LED de estado de bateria cambiará de estado una vez por segundo en el estado sBATERIA_BAJA

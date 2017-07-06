@@ -9,12 +9,12 @@ typedef struct BateriaStruct
 }Bateria;
 
 enum EstadosBateria {
-	CARGANDO,
-	LLENA,
-	MEDIA,
-	BAJA,
-	VACIA,
-	CRITICA
+	sBATERIA_CARGANDO,
+	sBATERIA_LLENA,
+	sBATERIA_MEDIA,
+	sBATERIA_BAJA,
+	sBATERIA_VACIA,
+	sBATERIA_CRITICA
 };
 
 void Bateria_Init							( Bateria * bateria );
