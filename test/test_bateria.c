@@ -1,6 +1,7 @@
 #include "unity.h"
 #include "bateria.h"
 #include "Framework.h"
+#include "mock_analog.h"
 
 /* Documentacion del modulo, sus entradas y salidas, los requerimientos que se infirieron de ellas y las actividades de validacion resultantes
  *
@@ -65,12 +66,18 @@
  * - Encendido/apgado del LED del tablero del auto.
  */
 
-Bateria bateria;
+Bateria	bateria;
+Evento	eventoTimeout, evn;
+int		retVal;
+
+#define PASA_UN_SEGUNDO(e) (Bateria_manejadorEventos(&bateria, &eventoTimeout))
 
 void setUp(void)
 {
 	Framework_init	( );
 	Bateria_Init	( &bateria ); //Para que todos los tests inicien con un controlador limpio
+	eventoTimeout.senial = SIG_TIMEOUT;
+	eventoTimeout.valor = 0;
 }
 
 void tearDown(void)
@@ -79,8 +86,20 @@ void tearDown(void)
 }
 
 //Para enviar un evento al modulo se llama al manejador de eventos del mismo con el evento como argumento.
-
-void test_FrameworkOk(void)
+void test_FrameworkOk						( void )
 {
 	TEST_ASSERT_EQUAL(1,1);
+}
+
+void test_Ejemplo							( void )
+{
+	getValorInstantaneoPinBateria_ExpectAndReturn( 14400 / 20 );
+	setEstadoLEDPanelFrontal_Expect( 1 );
+	PASA_UN_SEGUNDO			( );
+
+	retVal = Framework_consumirEvento( &evn );
+
+	TEST_ASSERT_TRUE		( retVal );
+	TEST_ASSERT_EQUAL		( SIG_BATERIA_TENSION_ACTUAL_MV, evn.senial );
+	TEST_ASSERT_EQUAL		( 14400, evn.valor );
 }
