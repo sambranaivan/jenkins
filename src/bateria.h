@@ -5,7 +5,7 @@
 
 typedef struct BateriaStruct
 {
-	int bogus;
+	int estado;
 }Bateria;
 
 enum EstadosBateria {

@@ -17,7 +17,7 @@
 
 void Bateria_Init							( Bateria * bateria )
 {
-
+	bateria->estado = sBATERIA_LLENA;
 }
 
 /**
