@@ -17,7 +17,7 @@
 
 void Bateria_Init							( Bateria * bateria )
 {
-
+	bateria->estado = sBATERIA_LLENA;
 }
 
 /**
@@ -29,13 +29,33 @@ void Bateria_Init							( Bateria * bateria )
 void Bateria_manejadorEventos 				( Bateria * bateria, Evento * evento )
 {
 	Evento evn;
+	int tensionMedida;
+
 	switch( evento->senial )
 	{
 		case SIG_TIMEOUT:
+			tensionMedida	= Bateria_tomarUnaMedicion( bateria );
+			if( tensionMedida >= uBATERIA_CARGANDO ) {
+				bateria->estado	= sBATERIA_CARGANDO;
+			}
+			else if( tensionMedida >= uBATERIA_LLENA ) {
+				bateria->estado	= sBATERIA_LLENA;
+			}
+			else {
+				bateria->estado	= sBATERIA_MEDIA;
+			}
 			break;
 
 		case SIG_ARRANQUE:
 		default:
 			break;
 	}
+}
+
+int  Bateria_tomarUnaMedicion				( Bateria * bateria )
+{
+	int m1, m2;
+	m1 = getValorInstantaneoPinBateria	( ) * ESCALA_CUENTAS_MV;
+	m2 = getValorInstantaneoPinBateria	( ) * ESCALA_CUENTAS_MV;
+	return (m1+m2) / 2;
 }
