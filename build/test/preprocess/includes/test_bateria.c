@@ -1,0 +1,6 @@
+---
+- unity.h
+- bateria.h
+- Framework.h
+- mock_analog.h
+- build/temp/_test_bateria.c

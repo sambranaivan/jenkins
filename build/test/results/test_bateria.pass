@@ -1,0 +1,31 @@
+---
+:source:
+  :path: test
+  :file: test_bateria.c
+:successes:
+- :test: test_ReqBat_1_1_UnaMedicionCorrecta
+  :line: 90
+  :message: ''
+- :test: test_ReqBat_1_2_UnaMedicionPorSegundo
+  :line: 118
+  :message: ''
+- :test: test_ReqBat_2_1_EstadoInicialBateria
+  :line: 134
+  :message: ''
+- :test: test_ReqBat_2_2_a_EstadosBateriaCargando
+  :line: 148
+  :message: ''
+- :test: test_ReqBat_2_2_b_EstadosBateriaLlena
+  :line: 170
+  :message: ''
+- :test: test_ReqBat_2_2_c_EstadosBateriaLlena
+  :line: 208
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 6
+  :passed: 6
+  :failed: 0
+  :ignored: 0
+:stdout: []
