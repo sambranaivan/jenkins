@@ -208,9 +208,11 @@
   :enabled:
   - stdout_pretty_tests_report
   - module_generator
+  - xml_tests_report
   :display_raw_test_results: false
   :stdout_pretty_tests_report_path: vendor/ceedling/plugins/stdout_pretty_tests_report/lib
   :module_generator_path: vendor/ceedling/plugins/module_generator/lib
+  :xml_tests_report_path: vendor/ceedling/plugins/xml_tests_report/lib
 :module_generator:
   :project_root: "./"
   :source_root: src/
