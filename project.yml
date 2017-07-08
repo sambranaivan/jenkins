@@ -80,6 +80,7 @@
     - vendor/ceedling/plugins
   :enabled:
     - stdout_pretty_tests_report
+    - gcov
     - module_generator
     - xml_tests_report
 ...
