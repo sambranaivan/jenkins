@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<!DOCTYPE coverage
+  SYSTEM 'http://cobertura.sourceforge.net/xml/coverage-03.dtd'>
+<coverage branch-rate="0.0" line-rate="0.0" timestamp="1499896166" version="gcovr 3.3">
+<sources>
+<source>src</source>
+</sources>
+<packages/>
+</coverage>
+

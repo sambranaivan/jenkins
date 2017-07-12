@@ -45,15 +45,10 @@
   :use_test_definition: false
   :commmon: []
 :libraries:
-  :test:
-  - &2 []
+  :test: []
   :test_preprocess: []
-  :release:
-  - *2
+  :release: []
   :release_preprocess: []
-  :placement: :end
-  :flag: "${1}"
-  :common: []
 :flags: {}
 :extension:
   :header: ".h"
@@ -126,6 +121,7 @@
     - -o "${2}"
     - ''
     - "${4}"
+    - "-lm"
   :test_file_preprocessor:
     :executable: gcc.exe
     :name: default_test_file_preprocessor
@@ -209,6 +205,7 @@
     - "-ftest-coverage"
     - "${1}"
     - "-o ${2}"
+    - "-lm"
     :name: gcov_linker
     :stderr_redirect: :none
     :background_exec: :none
@@ -220,9 +217,9 @@
     - "-p"
     - "-b"
     - "-e '^vendor.*|^build.*|^test.*|^lib.*'"
-    - "--html"
+    - "--xml"
     - "-r ."
-    - "-o GcovCoverageResults.html"
+    - "-o GcovCoverageResults.xml"
     :name: gcov_post_report
     :stderr_redirect: :none
     :background_exec: :none
@@ -275,6 +272,14 @@
   :gcov_path: vendor/ceedling/plugins/gcov/lib
   :stdout_gtestlike_tests_report_path: vendor/ceedling/plugins/stdout_gtestlike_tests_report/lib
   :xml_tests_report_path: vendor/ceedling/plugins/xml_tests_report/lib
+:tools_test_linker:
+  :arguments:
+  - "-lm"
+:tools_gcov_linker:
+  :arguments:
+  - "-lm"
+:gcov:
+  :html_report_type: basic
 :module_generator:
   :project_root: "./"
   :source_root: src/

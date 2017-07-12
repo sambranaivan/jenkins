@@ -37,7 +37,7 @@
         - -p
         - -b
         - -e '^vendor.*|^build.*|^test.*|^lib.*'
-        - --html
+        - --xml
         - -r .
-        - -o GcovCoverageResults.html
+        - -o GcovCoverageResults.xml
 ...
